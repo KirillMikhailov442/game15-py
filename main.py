@@ -1,5 +1,6 @@
 import random
-from tkinter import ttk
+import time
+from tkinter import messagebox, ttk
 from constants import *
 from tkinter import *
 
@@ -17,7 +18,8 @@ class Puzzle15:
         self.count = 0
         self.start_time = time.time()
         self.creat_window()
-        sefl.update_widget()
+        self.update_widget()
+        self.update_timer()
 
 
     def creat_window(self):
