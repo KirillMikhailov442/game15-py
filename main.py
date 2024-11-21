@@ -15,7 +15,9 @@ class Puzzle15:
         self.lab_timer = None
         self.seconds = 0
         self.count = 0
+        self.start_time = time.time()
         self.creat_window()
+        sefl.update_widget()
 
 
     def creat_window(self):
@@ -103,6 +105,17 @@ class Puzzle15:
                 if(self.board[y][x] == None): self.emptry_pos = (x, y)
 
 
+    def check_win(self):
+        for i in range(16):
+            if(i == 15): continue
+            if(self.board[int(i / 4)][i % 4] != i + 1):
+                break
+        else:
+            seconds = self.seconds % 60
+            minutes = int(self.seconds / 60)
+            self.quit("Вы выиграли", f"Вы сходили: {self.count} \n Потратили времени: {minutes}:{seconds}")
+
+
     def update_timer(self):
         self.seconds += 1
         
@@ -110,6 +123,11 @@ class Puzzle15:
         minutes = int(self.seconds / 60)
         self.lab_timer['text'] = f"Время: {minutes}:{seconds}"
         self.root.after(1000, self.update_timer)
+
+
+    def quit(self, title: str, text: str):
+        if(title): messagebox.showinfo(title, text)
+        self.root.destroy()
                 
 
 if __name__ == "__main__":
