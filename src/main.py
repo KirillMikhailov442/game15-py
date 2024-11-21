@@ -1,7 +1,7 @@
 import random
 import time
 from tkinter import messagebox, ttk
-from constants import *
+from src.constants import *
 from tkinter import *
 
 class Puzzle15:
