@@ -1,4 +1,0 @@
-WINDOW_TITLE="Число головоломка \"15\""
-WINDOW_SIZE="350x400"
-FONT_FAMILY='Arial'
-FONT_SIZE=25
